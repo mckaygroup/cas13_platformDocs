@@ -1,0 +1,121 @@
+/* Change the default color of the logo text in the sidebar */
+.wy-nav-content-wrap a.wy-logo {
+    color: #d8ffc2 !important; /* White text color */
+}
+
+/* change to increase the width of the readthedocs */
+.wy-nav-content {
+    max-width: 1200px !important;
+}
+
+/* Ensure text remains visible when hovered */
+.wy-nav-content-wrap a.wy-logo:hover {
+    color: #d8ffc2 !important; /* White text color */
+}
+
+/* Override the background color of the sidebar */
+.wy-nav-side {
+    background-color: #E9C2FF !important;
+    color: #6F00B0;
+}
+
+/* Override the color of the navigation links in the side menu */
+.wy-nav-side a {
+    color: #6F00B0; /* Change to your desired color */
+}
+
+/* Change the hover color of the navigation links in the side menu */
+.wy-nav-side a:hover {
+    color: #E9C2FF; /* Change to your desired hover color */
+    background-color: #6F00B0; /* Darker purple */
+}
+
+/* Override the background color of the search area */
+.wy-side-nav-search {
+    background-color: #6F00B0; /* Darker purple */
+}
+
+
+
+/* Change the background color of the drop-down menu items in the sidebar */
+.wy-menu.wy-menu-vertical li ul li a {
+    background-color: #d8ffc2 !important; /* Green background color */
+    color: #41b000 !important; /* White text color */
+}
+
+/* Change the background color of the drop-down menu items in the sidebar on hover */
+.wy-menu.wy-menu-vertical li ul li a:hover {
+    background-color: #41b000 !important; /* Dark green hover color */
+    color: #d8ffc2 !important; /* White text color */
+}
+
+/* Change the background color of the drop-down menu items in the sidebar when active */
+.wy-menu.wy-menu-vertical li ul li a:active {
+    background-color: #41b000 !important; /* Dark green active color */
+}
+
+/* Override the background color and border color of note elements */
+.admonition.note {
+    background-color: #E9C2FF; /* light purple */
+    border-color: #6F00B0; /* Change to your desired border color */
+}
+
+/* Override styles for note elements */
+.admonition.note {
+    color: #333; /* Change to your desired text color */
+    padding: 10px; /* Adjust padding as needed */
+    margin-bottom: 20px; /* Adjust margin as needed */
+    border-radius: 5px; /* Adjust border radius as needed */
+}
+
+/* Override styles for the note symbol/icon */
+.admonition.note .admonition-title:before {
+    color: #E9C2FF; /* Change to your desired color */
+    background-color: #6F00B0; /* Change to your desired background color */
+}
+
+/* Override styles for the "Note" text */
+.admonition.note .admonition-title {
+    color: #E9C2FF; /* light purple */
+    background-color: #6F00B0; /* Change to your desired background color */
+}
+
+div[role="search"] input[type="text"]::placeholder {
+    color: #d8ffc2  !important; /* Change placeholder text color to purple */
+}
+
+div[role="search"] input[type="text"] {
+    background-color: #41b000 ; /* Change background color to purple */
+    border-color: #d8ffc2; /* Change border color to white */
+    border-width: 3px; /* Change border thickness to 2 pixels */
+    font-size: 16px; /* Adjust the font size as needed */
+}
+
+/* Override the color of the text in the side-nav-search */
+.wy-side-nav-search input[type="text"] {
+    color: #d8ffc2 !important; /* Change to your desired color */
+}
+
+/* Change the default color of hyperlinks */
+a {
+    color: #6F00B0; /* Change to your desired color */
+}
+
+/* Change the hover color of hyperlinks */
+a:hover {
+    color: #6F00B0; /* Dark purple */
+    background-color: #E9C2FF; /* Light purple */
+}
+
+
+/* Change the color of visited hyperlinks */
+a:visited {
+    color: #6F00B0; /* Dark purple color */
+}
+
+
+/* Change the background color and text color of the selected top-level item in the sidebar */
+.wy-nav-side .current > a {
+    background-color: #6F00B0 !important; /* Change to your desired background color */
+    color: #E9C2FF !important; /* Change to your desired text color */
+}

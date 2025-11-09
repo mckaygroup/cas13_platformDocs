@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview &mdash; STEGO.R 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Step 1. Formatting" href="1.Backend.html" />
+    <link rel="prev" title="Welcome to Cas13 platform documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/logo-removebg-preview_green.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mac">MAC:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#windows">Windows:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linux">Linux:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sytem-requirements">Sytem requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#short-cut-key-for-running-a-line-of-r-code">short-cut key for running a line of R code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#downloading-and-installing-stego-r">Downloading and installing STEGO.R</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trouble-shooting-missing-packages">Trouble shooting missing packages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="1.Backend.html">Step 1. Formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.Engine.html">Step 2. TCRex and ClusTCR2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.Analysis.html">Step 3. Quality control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4.ExperimentalDesign.html">Step 4. Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5.UserTips.html">User Tips for the analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6.FAQ.html">Frequenctly Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.Tutorial.html">Video Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8.History.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9.Publications.html">Publications and citations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">STEGO.R</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/0.Installation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h1>
+<p>This process is to install the required packages for running the pipeline.</p>
+<hr class="docutils" />
+<p>Please install R version 4.5 or greater. If your operating system doesn’t support this version of R, than some of the functions (e.g., annotation with scGate) may not work as expected.</p>
+<section id="mac">
+<h2>MAC:<a class="headerlink" href="#mac" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Install <a class="reference external" href="https://cran.r-project.org/bin/macosx/">R_mac</a></p></li>
+<li><p>Install <a class="reference external" href="https://posit.co/download/rstudio-desktop/">RStudio</a></p></li>
+<li><p>Install <a class="reference external" href="https://www.xquartz.org">Quartz</a></p></li>
+</ul>
+</section>
+<section id="windows">
+<h2>Windows:<a class="headerlink" href="#windows" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Install <a class="reference external" href="https://cran.r-project.org">R.Windows</a></p></li>
+<li><p>Install <a class="reference external" href="https://posit.co/download/rstudio-desktop/">RStudio</a></p></li>
+<li><p>Install <a class="reference external" href="https://cran.r-project.org/bin/windows/Rtools/">Rtools</a></p></li>
+</ul>
+</section>
+<section id="linux">
+<h2>Linux:<a class="headerlink" href="#linux" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>install <a class="reference external" href="https://cran.r-project.org/bin/linux/ubuntu/fullREADME.html">R.linux</a></p></li>
+</ul>
+<p>using <strong>sudo apt install</strong> the following:
+libcurl, libfontconfig1, libtiff5, liblapack-dev, libblas-dev, libglpk-dev, libudunits2-dev, libgdal-dev libgeos-dev, libproj-dev
+and also the gfortran</p>
+</section>
+<section id="sytem-requirements">
+<h2>Sytem requirements<a class="headerlink" href="#sytem-requirements" title="Permalink to this heading"></a></h2>
+<p>Recommended to use a 64-bit OS with at least 16GB of RAM, ideally &gt;=32GB. This is needed for the memory intensive merging and annotation steps.</p>
+<p>When running STEGO.R merging and annotation steps, we recommend to limit the number of other running programs to help prevent RAM memory overflow, espeically if you have &lt;32Gb of RAM.</p>
+<p>Storage requirements will depend on the number of cells annotating. For example, at least 200 GB of free space on a Macbook Pro was needed to process the T cell Atlas (V2/V3).</p>
+</section>
+<section id="short-cut-key-for-running-a-line-of-r-code">
+<h2>short-cut key for running a line of R code<a class="headerlink" href="#short-cut-key-for-running-a-line-of-r-code" title="Permalink to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">put</span> <span class="n">the</span> <span class="n">cursor</span> <span class="n">on</span> <span class="n">the</span> <span class="n">line</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">run</span><span class="o">.</span>
+
+     <span class="n">Mac</span><span class="p">:</span> <span class="n">Command</span> <span class="n">shift</span> <span class="n">Enter</span>
+     <span class="n">Windows</span><span class="p">:</span> <span class="n">ctrl</span> <span class="n">shift</span> <span class="n">Enter</span>
+</pre></div>
+</div>
+<section id="downloading-and-installing-stego-r">
+<h3>Downloading and installing STEGO.R<a class="headerlink" href="#downloading-and-installing-stego-r" title="Permalink to this heading"></a></h3>
+<p>Follow the steps in the <strong>install.R</strong> file found in the <strong>Directory_for_Project</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># see https://stegor-documents.readthedocs.io/en/latest/index.html for more details on the tutorial to follow through.
+# This is to make sure with installing from source is set to the g++ compiler
+Sys.setenv(&quot;CXX&quot; = &quot;g++&quot;)
+
+# installing STEGO.R
+if (!require(&quot;BiocManager&quot;, quietly = TRUE))
+  install.packages(&quot;BiocManager&quot;)
+
+if (!require(&quot;devtools&quot;, quietly = TRUE))
+  install.packages(&quot;devtools&quot;)
+
+if (!require(&quot;usethis&quot;, quietly = TRUE))
+  install.packages(&quot;usethis&quot;)
+
+# install STEGO.R with Devtools
+# if you get asked about installing from SOURCE, select NO.
+# if asked about updating the packages, select either 1 for all, or 3 for none.
+# also run this line to check for updates
+devtools::install_github(&quot;KerryAM-R/STEGO.R&quot;)
+
+# if asked to update the app either select 1 to updated all
+1
+# if asked to install from source on the M1 Mac chip (Seurat)
+y
+
+# if then prompted with all the bioconductor based packages to install from source on M1 or greater Mac chip
+y
+
+# under development - latest build, but may be unstable
+# devtools::install_github(&quot;KerryAM-R/STEGO.R&quot;, ref = &quot;beta-version&quot;, force = T)
+
+# import all of the fonts to your system. Will only need to be done the first time.
+require(extrafont)
+font_import()
+
+# when it asks if you would like to install the different fonts
+y
+
+loadfonts()
+
+fonts &lt;- fonttable()
+head(fonts)
+
+# you many need to add in the git_token, and the Renviorn is opened with the following code.
+usethis::edit_r_environ()
+</pre></div>
+</div>
+<p><strong>Possible installing prompts</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">When</span> <span class="n">you</span> <span class="n">see</span> <span class="n">this</span> <span class="n">line</span><span class="p">:</span> <span class="s2">&quot;These packages have more recent versions available. It is recommended to update all of them. Which would you like to update?&quot;</span>
+
+<span class="n">Answer</span> <span class="k">with</span>  <span class="s2">&quot;1&quot;</span> <span class="ow">and</span> <span class="n">hit</span> <span class="s2">&quot;Enter&quot;</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Other Mac prompts on M1 or greater chip</strong></p>
+<p>The installation may ask you the following to install from source. In this instance, select yes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>There is a binary version available but the source version is later:
+ binary source needs_compilation
+ Seurat  5.0.3  5.1.0              TRUE
+
+ Do you want to install from sources the package which needs compilation? (Yes/no/cancel)
+ y
+</pre></div>
+</div>
+<p><strong>Installing the bioconductor packages from Source.</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Packages which are only available in source form, and may need compilation of C/C++/Fortran: ‘zlibbioc’ ‘XVector’ ‘SparseArray’ ‘S4Arrays’ ‘IRanges’ ‘Biobase’ ‘DelayedArray’ ‘GenomicRanges’ ‘S4Vectors’
+  ‘BiocNeighbors’ ‘BiocParallel’
+Do you want to attempt to install these from sources? (Yes/no/cancel)
+y
+</pre></div>
+</div>
+<p><strong>Expected final lines once STEGO.R has been correctly installed.</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>R CMD build
+       ✔  checking for file ‘/Users/kerrymullan/Desktop/STEGO_copy.R/Temp/Rtmp0n6xNi/remotes176117593b632/KerryAM-R-STEGO.R-df4640eae1a05f44f3c91ca527215f4af56894ff/DESCRIPTION’ ...
+       ─  preparing ‘STEGO.R’:
+       ✔  checking DESCRIPTION meta-information ...
+       ─  checking for LF line-endings in source and make files and shell scripts
+       ─  checking for empty or unneeded directories
+       ─  building ‘STEGO.R_1.0.0.tar.gz’
+   * installing *source* package STEGO.R’ ...
+   ** using staged installation
+   ** R
+   ** inst
+   ** byte-compile and prepare package for lazy loading
+   ** help
+   *** installing help indices
+   *** copying figures
+   ** building package indices
+   ** testing if installed package can be loaded from temporary location
+   ** testing if installed package can be loaded from final location
+   ** testing if installed package keeps a record of temporary installation path
+   * DONE (STEGO.R)
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">.rs.restartR()</span></code> # restart R</p>
+</section>
+<section id="trouble-shooting-missing-packages">
+<h3>Trouble shooting missing packages<a class="headerlink" href="#trouble-shooting-missing-packages" title="Permalink to this heading"></a></h3>
+<p>Check that you have the latest version of R.</p>
+<p>Check that you downloaded first the devtools and bioconductor.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Cas13 platform documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="1.Backend.html" class="btn btn-neutral float-right" title="Step 1. Formatting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Graziella.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

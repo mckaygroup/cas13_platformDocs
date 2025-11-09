@@ -1,0 +1,20 @@
+Publications and citations
+==========================
+
+**Citing Platform Pipeline**
+------------------------------------
+
+Print print `bioRxiv <https://doi.org/10.1101/2023.09.27.559702>`_
+
+  1. STEGO.R: an application to aid in scRNA-seq and scTCR-seq processing and analysis (V1)
+
+  2. T cell receptor-centric perspective to multimodal single-cell data analysis (V2)
+
+**Citing other related research**
+------------------------------------
+
+if you use the STEGO.R wrap around for the QC, we recommend also citing these other tools that made STEGO.R workflow possible. 
+
+1. **Tool**  
+   First Author et al. (2023). Title. *Jornal*, `DOI <https://doi.org/10.1038/s41587-023-01767-y>`_.
+   
