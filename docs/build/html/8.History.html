@@ -46,16 +46,14 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="0.Installation.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1.Backend.html">Step 1. Formatting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2.Engine.html">Step 2. TCRex and ClusTCR2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3.Analysis.html">Step 3. Quality control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4.ExperimentalDesign.html">Step 4. Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.Backend.html">1. Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.Engine.html">2. Engine: Processing the Sequence data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.Analysis.html">3. Analysis Section:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4.ExperimentalDesign.html">4. Experimental design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="5.UserTips.html">User Tips for the analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="6.FAQ.html">Frequenctly Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="7.Tutorial.html">Video Tutorial</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#version-2-0"><strong>Version 2.0</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#version-1-5"><strong>Version 1.5</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-1-0"><strong>Version 1.0</strong></a></li>
 </ul>
 </li>
@@ -88,61 +86,10 @@
              
   <section id="history">
 <h1>History<a class="headerlink" href="#history" title="Permalink to this heading"></a></h1>
-<section id="version-2-0">
-<h2><strong>Version 2.0</strong><a class="headerlink" href="#version-2-0" title="Permalink to this heading"></a></h2>
+<section id="version-1-0">
+<h2><strong>Version 1.0</strong><a class="headerlink" href="#version-1-0" title="Permalink to this heading"></a></h2>
 <p><strong>Major additions</strong></p>
-<blockquote>
-<div><p>Added in the automated section for the TCR -&gt; GEx focused analysis.</p>
-<p>Layout changes of the tabs to match the steps in the tutorial to improve user experience.</p>
-<p>Added in the post analysis section for easy extraction of the final meta data table. Also in this section added in filtering and summarising .csv files as needed, which can be useful when explore the summary outputs of the automated preocesses to know which TCR to focus on.</p>
-<p>Change exporting from the .h5Seurat to .rds object due to V4 vs V5 Seurat update.</p>
-<p>Added in V4 and V5 to merging and annotation, due to data storage changes with Seurat objects.</p>
-<p>Changed Top clonotype to clonal abudance.</p>
-<p>Improve the merging function to reduce to 2 at a time in a loop.</p>
-<p>Improved harmony_batch_correction_2_Scaling() to add in Seruat_version, as there was a object layout change between V4 and V5.</p>
-<p>Improve the scGate_annotating() function to include batch annotations for larger datasets. I recommended with the system I have between 50,000 to 100,000 cells per batch (max) due to computational time requirements.</p>
-</div></blockquote>
 <p><strong>New Functions</strong></p>
-<blockquote>
-<div><p>Updated the Directory_for_project to include the new command-line functions. This is for larger dataset to help automate the process.</p>
-</div></blockquote>
-<ul class="simple">
-<li><dl class="simple">
-<dt>Step 1. pre-processing.R</dt><dd><ul>
-<li><p>preprocessing_10x() # for 10x Genomics</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt>Step 2b. ClusTCR2_large.R</dt><dd><ul>
-<li><p>ClusTCR_Large()</p></li>
-<li><p>mcl_cluster_large()</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</div></blockquote>
-<ul class="simple">
-<li><dl class="simple">
-<dt>Step 3a-c. filtering_merging_harmony_annotating.R</dt><dd><ul>
-<li><p>automated_sc_filtering()</p></li>
-<li><p>merging_multi_SeuratRDS()</p></li>
-<li><p>harmony_batch_correction_1_variableFeatures()</p></li>
-<li><p>harmony_batch_correction_1_variableFeatures()</p></li>
-<li><p>harmony_batch_correction_2_Scaling()</p></li>
-<li><p>harmony_batch_correction_3_PC()</p></li>
-<li><p>harmony_batch_correction_4_Harmony()</p></li>
-<li><p>scGate_annotating()</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
 <p><strong>Bug Fixes</strong></p>
 <blockquote>
 <div><p>Fixed program not opening if the user was not working in the project file. Removed the need to find the custom_db folder and sub-folders.</p>
@@ -156,29 +103,6 @@
 <p>Removed redundant packages.</p>
 <p>Fixed some figure download issues.</p>
 </div></blockquote>
-</section>
-<section id="version-1-5">
-<h2><strong>Version 1.5</strong><a class="headerlink" href="#version-1-5" title="Permalink to this heading"></a></h2>
-<p><strong>Major additions</strong></p>
-<blockquote>
-<div><p>Added in ‘stats’, ‘dot plot’ and ‘over-representation’ to “Expanded”, “Epitope and  “ClusTCR2” section under the “TCR and GEX”</p>
-<p>Added in the “Marker” tab to the “TCR and GEX” analysis which is used to identify T cells associated with specific transcript for a single marker. The Dextramer (dual marker) is <em>under development</em>.</p>
-<p>Changed from a single ClusTCR2 output file to segregate to two files with the suffix <em>AG_</em> and <em>BD_</em>. This was to increase the clustering speed, as well as streamline the merging process in the “Analysis” section.</p>
-</div></blockquote>
-<p><strong>Bug Fixes</strong></p>
-<blockquote>
-<div><p>Fixed the issue with cell Index issue causing no identificaiton of over-represented marker analysis in the “Expanded” section.</p>
-</div></blockquote>
-<p><strong>Other changes</strong></p>
-<blockquote>
-<div><p>Added in a novel ID and keeping the original cell ID, which is needed for adding in the multi-TCR section that is under active development.</p>
-<p>Added in a place holder for the proritisation scheme with a list of ‘rule’ of the analysis. This is being actively developed and refined based on the anlysis of the 12 available datasets.</p>
-</div></blockquote>
-</section>
-<section id="version-1-0">
-<h2><strong>Version 1.0</strong><a class="headerlink" href="#version-1-0" title="Permalink to this heading"></a></h2>
-<p>Purpose of STEGO</p>
-<p>STEGO.R 1.0 has involve streamlining the quality control processes of both GEx and TCR-seq data.</p>
 </section>
 </section>
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Step 2. TCRex and ClusTCR2 &mdash; STEGO.R 0.1 documentation</title>
+  <title>2. Engine: Processing the Sequence data &mdash; STEGO.R 0.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -20,8 +20,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Step 3. Quality control" href="3.Analysis.html" />
-    <link rel="prev" title="Step 1. Formatting" href="1.Backend.html" /> 
+    <link rel="next" title="3. Analysis Section:" href="3.Analysis.html" />
+    <link rel="prev" title="1. Backend" href="1.Backend.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,15 +46,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="0.Installation.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1.Backend.html">Step 1. Formatting</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Step 2. TCRex and ClusTCR2</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#a-merging-tcrex"><strong>2a.</strong> Merging TCRex</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#b-clustering-with-clustcr2"><strong>2b.</strong> Clustering with ClusTCR2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#command-line-process">Command line process</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="3.Analysis.html">Step 3. Quality control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4.ExperimentalDesign.html">Step 4. Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.Backend.html">1. Backend</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Engine: Processing the Sequence data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.Analysis.html">3. Analysis Section:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4.ExperimentalDesign.html">4. Experimental design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="5.UserTips.html">User Tips for the analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="6.FAQ.html">Frequenctly Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="7.Tutorial.html">Video Tutorial</a></li>
@@ -76,7 +71,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Step 2. TCRex and ClusTCR2</li>
+      <li class="breadcrumb-item active">2. Engine: Processing the Sequence data</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/2.Engine.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -86,100 +81,48 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="step-2-tcrex-and-clustcr2">
-<h1>Step 2. TCRex and ClusTCR2<a class="headerlink" href="#step-2-tcrex-and-clustcr2" title="Permalink to this heading"></a></h1>
+  <section id="engine-processing-the-sequence-data">
+<h1>2. Engine: Processing the Sequence data<a class="headerlink" href="#engine-processing-the-sequence-data" title="Permalink to this heading"></a></h1>
+<p>This process uses R scripts</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<dl>
-<dt>Consideration for the analysis.</dt><dd><p>The pipeline was built for scRNA-seq with scTCR-seq datasets.</p>
-<p>QC documentation is being actively updated.</p>
-</dd>
+<dl class="simple">
 <dt>Prerequisite</dt><dd><ul class="simple">
-<li><p>Install STEGO.</p></li>
-<li><p>Copy all your raw files to the 0_Raw_files folder within your project.</p></li>
-<li><p>Downloaded files to 1_ClusTCR2, 1_SeuratQC, 1_TCRex and TCR_Explore</p></li>
+<li><p>Sequences and required data already processed from the backend</p></li>
 </ul>
 </dd>
 </dl>
 </div>
-<section id="a-merging-tcrex">
-<h2><strong>2a.</strong> Merging TCRex<a class="headerlink" href="#a-merging-tcrex" title="Permalink to this heading"></a></h2>
-TCRex is a user-friendly webtool designed to facilitate the prediction of epitope-TCR binding. It starts from a TCR file containing a list of TCR beta sequences. After selecting the epitopes of interest, TCRex predicts the binding between every TCR sequence and every epitope. Currently it supports predictions for 100 epitopes. More information on how to use this tool and interpret the results can be found at <a href="https://tcrex.biodatamining.be" target="_blank">TCRex</a> website. </br></br>1. Upload all the files stored in the "1_TCRex" for merging and save the merged file to the 1_TCRex folder. </br>2. The TCRex merge file can then be uploaded to the <a href="https://tcrex.biodatamining.be" target="_blank">TCRex</a> website to predict if the beta chain will interact with certain epitopes. </br>3. Once the TCRex process is complete, download the processed file, and move it to the 3_Analysis folder. </br></br><a class="reference internal image-reference" href="_images/2a_TCRex_merge.png"><img alt="Alternative text" src="_images/2a_TCRex_merge.png" style="width: 600px;" /></a>
-</section>
-<section id="b-clustering-with-clustcr2">
-<h2><strong>2b.</strong> Clustering with ClusTCR2<a class="headerlink" href="#b-clustering-with-clustcr2" title="Permalink to this heading"></a></h2>
-<p>ClusTCR2 is an R alternative to the python package ClusTCR [1], specifically developed to be applied to single cell TCR sequencing data. The original version of ClusTCR applies a two-step process to cluster large sets of TCR sequences. The first step involves encoding TCRs into a numerical vector, based on the physicochemical properties of the amino acids. K-means clustering is applied to the amino acid vectors to create large families of pre-clusters. During the second step, a hashing function is used to identify all pairs of CDR3 amino acid sequences with ≤ 1 Hamming distance mismatch. From these CDR3 pairs, a graph is constructed, and communities are detected using the Markov clustering (MCL) algorithm, which will be the final clusters.</p>
-<p>This process requires the user to upload AG separate for the BD clustering. This is due to how the data is re-combined with the meta data in the Seurat object in STEP4. Analysis.</p>
 <ol class="arabic simple">
 <li><dl class="simple">
-<dt>If there are multiple files under the ‘ClusTCR2’, merge the <strong>AG_</strong> or <strong>BD_</strong> from the <strong>1_ClusTCR2</strong> folder.</dt><dd><ul class="simple">
-<li><p>save the file with <strong>AG_</strong> or <strong>BD_</strong> prefix.</p></li>
-</ul>
+<dt>Extract pattern</dt><dd><p>extract the 30bp segment (modular length)
+Apply biological rule (3’ CC == 5’ GG)</p>
 </dd>
 </dl>
 </li>
-</ol>
-<a class="reference internal image-reference" href="_images/2b_clusTCR2_merge.png"><img alt="Alternative text" src="_images/2b_clusTCR2_merge.png" style="width: 600px;" /></a>
-<ol class="arabic simple" start="2">
-<li><p>Upload either the merged file or single <strong>AG_</strong> or <strong>BD_</strong> under the “Clustering inputs” tab.</p></li>
-</ol>
-<a class="reference internal image-reference" href="_images/2b_uploaded_merged_ClusTCR2.png"><img alt="Alternative text" src="_images/2b_uploaded_merged_ClusTCR2.png" style="width: 600px;" /></a>
-<ol class="arabic simple" start="3">
-<li><p>Hit the “Update clustering” button to perform the clustering.</p></li>
 <li><dl class="simple">
-<dt>Under the “output” tab has three sub-sections</dt><dd><ul class="simple">
-<li><p>Processing: Time taken to complete the clustering</p></li>
-<li><p>Table for analysis: Download the table to the <strong>“3_Analysis”</strong> section; make sure you add the <strong>AG_</strong> or <strong>BD_</strong> prefix to the file name.</p></li>
-<li><p>Figures: The user can explore the data and download the clustering network and the corresponding motif. The latter figure is also generated in the “Analysis section”.</p></li>
-</ul>
+<dt>Hamming distance</dt><dd><p>tested in both R and Cpp (Cpp is faster ~40min for 200K GG based guides)
+In blocks of 25 guides to keep the process speedy</p>
 </dd>
 </dl>
 </li>
+<li><p>Mergin the hamming distance</p></li>
+<li><p>Exact Conservation</p></li>
+<li><p>Relaxed Conservation (uses output of 3 to reduce list)</p></li>
+<li><p>Annotating</p></li>
+<li><p>Reverse Complement</p></li>
+<li><p>Add in ML predictions</p></li>
+<li><p>Add in Reporter results</p></li>
+<li><p>Off-target effects</p></li>
 </ol>
-<a class="reference internal image-reference" href="_images/2b_clustering_table_for_analysis.png"><img alt="Alternative text" src="_images/2b_clustering_table_for_analysis.png" style="width: 600px;" /></a>
-</section>
-<section id="command-line-process">
-<h2>Command line process<a class="headerlink" href="#command-line-process" title="Permalink to this heading"></a></h2>
-<p><strong>Step 2b. has command line equivalent codes.</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">require</span><span class="p">(</span><span class="n">ClusTCR2</span><span class="p">)</span>
-<span class="c1"># this process assumes that you have already merged the files using the interface, and saved the file in 1_ClusTCR folder</span>
-
-<span class="c1"># alpha/gamma chain -----</span>
-<span class="n">clust</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">raw</span> <span class="o">&lt;-</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">&quot;1_ClusTCR/AG_Multi_ClusTCR.csv&quot;</span><span class="p">)</span>
-
-<span class="c1"># this should print the v_gene name</span>
-<span class="n">names</span><span class="p">(</span><span class="n">clust</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">raw</span><span class="p">)</span>
-
-<span class="c1"># once you have checked the v_gene name matches, proceeded to runing the clustering step (1 edit distance), followed by the mcl step to label the clusters.</span>
-<span class="n">step1</span> <span class="o">&lt;-</span> <span class="n">ClusTCR2</span><span class="p">::</span><span class="n">ClusTCR_Large</span><span class="p">(</span><span class="n">clust</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">raw</span><span class="p">,</span><span class="n">allele</span> <span class="o">=</span> <span class="n">F</span><span class="p">,</span><span class="n">v_gene</span> <span class="o">=</span> <span class="s2">&quot;v_gene&quot;</span><span class="p">)</span>
-<span class="n">step2</span> <span class="o">&lt;-</span> <span class="n">ClusTCR2</span><span class="p">::</span><span class="n">mcl_cluster_large</span><span class="p">(</span><span class="n">step1</span><span class="p">)</span>
-<span class="c1"># this saves both the analysis cluster table and the list object that can create each of the unique network plots</span>
-<span class="n">saveRDS</span><span class="p">(</span><span class="n">step2</span><span class="p">,</span><span class="s2">&quot;1_ClusTCR/AG_clusTCR2.all.rds&quot;</span><span class="p">)</span>
-
-<span class="c1"># saves the final clustering table for the Step 4. Analysis section.</span>
-<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">step2</span><span class="p">[[</span><span class="mi">1</span><span class="p">]],</span><span class="s2">&quot;AG_clusTCR2.csv&quot;</span><span class="p">,</span><span class="n">row</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">F</span><span class="p">)</span>
-
- <span class="c1"># beta/delta chain ----</span>
-<span class="n">clust</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">raw</span> <span class="o">&lt;-</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">&quot;1_ClusTCR/BD_Multi_ClusTCR.csv&quot;</span><span class="p">)</span>
-<span class="n">names</span><span class="p">(</span><span class="n">clust</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">raw</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">step1</span> <span class="o">&lt;-</span> <span class="n">ClusTCR2</span><span class="p">::</span><span class="n">ClusTCR_Large</span><span class="p">(</span><span class="n">clust</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">raw</span><span class="p">,</span> <span class="n">allele</span> <span class="o">=</span> <span class="n">F</span><span class="p">,</span> <span class="n">v_gene</span> <span class="o">=</span> <span class="s2">&quot;v_gene&quot;</span><span class="p">)</span>
-<span class="n">step2</span> <span class="o">&lt;-</span> <span class="n">ClusTCR2</span><span class="p">::</span><span class="n">mcl_cluster_large</span><span class="p">(</span><span class="n">step1</span><span class="p">)</span>
-<span class="n">saveRDS</span><span class="p">(</span><span class="n">step2</span><span class="p">,</span><span class="s2">&quot;1_ClusTCR/BD_clusTCR2.all.rds&quot;</span><span class="p">)</span> <span class="c1"># saves the two list objects</span>
-<span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">step2</span><span class="p">[[</span><span class="mi">1</span><span class="p">]],</span><span class="s2">&quot;3_Analysis/BD_clusTCR2.csv&quot;</span><span class="p">,</span><span class="n">row</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">F</span><span class="p">)</span>
-</pre></div>
-</div>
-<p><strong>References</strong>
-1. Valkiers, S. et al. ClusTCR: a python interface for rapid clustering of large sets of CDR3 sequences with unknown antigen specificity. Bioinformatics, 2021. 37(24): p. 4865-4867.
-2. Gielis, S. et al. Detection of Enriched T Cell Epitope Specificity in Full T Cell Receptor Sequence Repertoires. Front Immunol 10, 2820 (2019).</p>
-</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="1.Backend.html" class="btn btn-neutral float-left" title="Step 1. Formatting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="3.Analysis.html" class="btn btn-neutral float-right" title="Step 3. Quality control" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="1.Backend.html" class="btn btn-neutral float-left" title="1. Backend" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3.Analysis.html" class="btn btn-neutral float-right" title="3. Analysis Section:" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

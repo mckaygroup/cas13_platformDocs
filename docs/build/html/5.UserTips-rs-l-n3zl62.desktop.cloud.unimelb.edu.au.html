@@ -1,29 +1,27 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="./">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Post Analysis &mdash; STEGO.R 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=03b827c4" />
-
-  
+  <title>User Tips for the analysis &mdash; STEGO.R 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=2709fde1"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Frequenctly Asked Questions" href="6.FAQ.html" />
-    <link rel="prev" title="Step 4. Analysis" href="4.STEP4Analysis.html" /> 
+    <link rel="prev" title="Step 4. Analysis" href="4.ExperimentalDesign.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,15 +45,19 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="0.installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1.formatting.html">Step 1. Formatting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2.STEP2.html">Step 2. TCRex and ClusTCR2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3.STEP3SeuratQC.html">Step 3. Quality control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4.STEP4Analysis.html">Step 4. Analysis</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Post Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="0.Installation.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.Backend.html">1. Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.Engine.html">Step 2. TCRex and ClusTCR2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.Analysis.html">Step 3. Quality control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4.ExperimentalDesign.html">Step 4. Analysis</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">User Tips for the analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tip-for-analysis">Tip for analysis</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="6.FAQ.html">Frequenctly Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="7.History.html">History</a></li>
-<li class="toctree-l1"><a class="reference internal" href="8.Tutorial.html">Video Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.Tutorial.html">Video Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8.History.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9.Publications.html">Publications and citations</a></li>
 </ul>
 
         </div>
@@ -72,9 +74,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Post Analysis</li>
+      <li class="breadcrumb-item active">User Tips for the analysis</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/5.postAnalysis.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/5.UserTips.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -82,50 +84,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="post-analysis">
-<h1>Post Analysis<a class="headerlink" href="#post-analysis" title="Link to this heading"></a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Under active construction</p>
-</div>
-<p>The analysis section is divided into several sub-sections.</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt>Extracting meta data</dt><dd><ul>
-<li><p>Requires the .rds file</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Filtering</dt><dd><ul>
-<li><p>Upload any .csv file</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Summarising</dt><dd><ul>
-<li><p>upload any .csv file</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>OLGA</dt><dd><ul>
-<li><p>upload the .rds object</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
+  <section id="user-tips-for-the-analysis">
+<h1>User Tips for the analysis<a class="headerlink" href="#user-tips-for-the-analysis" title="Permalink to this heading"></a></h1>
+<p>!!! Note</p>
+<blockquote>
+<div><p>This section is for user based advice. If you have any susggestions that helped with your analysis, we would appreviate you sending us your user experince to <a class="reference external" href="mailto:Kerry&#46;mullan&#37;&#52;&#48;uantwerpen&#46;be">Kerry<span>&#46;</span>mullan<span>&#64;</span>uantwerpen<span>&#46;</span>be</a> or add an issue on the github <a class="reference external" href="https://github.com/KerryAM-R/STEGOR/issues">https://github.com/KerryAM-R/STEGOR/issues</a></p>
+</div></blockquote>
+<section id="tip-for-analysis">
+<h2>Tip for analysis<a class="headerlink" href="#tip-for-analysis" title="Permalink to this heading"></a></h2>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="4.STEP4Analysis.html" class="btn btn-neutral float-left" title="Step 4. Analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4.ExperimentalDesign.html" class="btn btn-neutral float-left" title="Step 4. Analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="6.FAQ.html" class="btn btn-neutral float-right" title="Frequenctly Asked Questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

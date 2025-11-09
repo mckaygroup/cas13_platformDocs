@@ -46,23 +46,14 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="0.Installation.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1.Backend.html">Step 1. Formatting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2.Engine.html">Step 2. TCRex and ClusTCR2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3.Analysis.html">Step 3. Quality control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4.ExperimentalDesign.html">Step 4. Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.Backend.html">1. Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.Engine.html">2. Engine: Processing the Sequence data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.Analysis.html">3. Analysis Section:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4.ExperimentalDesign.html">4. Experimental design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="5.UserTips.html">User Tips for the analysis</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Frequenctly Asked Questions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#vdj-meta-data-questions">VDJ meta-data Questions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#what-do-the-vdj-gene-cdr3-ag-bd-mean">What do the vdj_gene_cdr3_AG_BD mean?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#what-is-the-difference-between-the-vdj-gene-cdr3-ag-bd-and-vj-cdr3-ag-bd-or-vdj-gene-ag-bd">What is the difference between the vdj_gene_cdr3_AG_BD and vj_cdr3_AG_BD or vdj_gene_AG_BD?</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#clustcr-questions">ClusTCR questions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#why-did-the-app-crash-when-running-clustcr">Why did the app crash when running clusTCR?</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#annotating">Annotating</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#why-does-the-umap-look-messy-with-the-semi-supervised-annotations">1. Why does the UMAP look messy with the semi-supervised annotations?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#theme">Theme</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#question-1">Question 1?</a></li>
 </ul>
 </li>
 </ul>
@@ -102,52 +93,11 @@
 <blockquote>
 <div><p>Under active construction</p>
 </div></blockquote>
-<section id="vdj-meta-data-questions">
-<h2>VDJ meta-data Questions<a class="headerlink" href="#vdj-meta-data-questions" title="Permalink to this heading"></a></h2>
-<section id="what-do-the-vdj-gene-cdr3-ag-bd-mean">
-<h3>What do the vdj_gene_cdr3_AG_BD mean?<a class="headerlink" href="#what-do-the-vdj-gene-cdr3-ag-bd-mean" title="Permalink to this heading"></a></h3>
-<p>During the intial processing step 1. there meta data, based on the TCR-seq is summarised into differen columns.</p>
-<p>v = v_gene, j = j_gene and d = diversity.</p>
-<p>cdr3 = variable cdr3 sequence.</p>
-<p>AG = alpha/gamma</p>
-<p>BD = beta/delta chains</p>
-<p>This column has the vj of the alpha/gamma chains cdr3 sequence and the vdj of the beta/delta with cdr3 sequence</p>
-</section>
-<section id="what-is-the-difference-between-the-vdj-gene-cdr3-ag-bd-and-vj-cdr3-ag-bd-or-vdj-gene-ag-bd">
-<h3>What is the difference between the vdj_gene_cdr3_AG_BD and vj_cdr3_AG_BD or vdj_gene_AG_BD?<a class="headerlink" href="#what-is-the-difference-between-the-vdj-gene-cdr3-ag-bd-and-vj-cdr3-ag-bd-or-vdj-gene-ag-bd" title="Permalink to this heading"></a></h3>
-<ol class="arabic simple">
-<li><p>has the complete pairing information of the TCR (see previous question for naming covention)</p></li>
-<li><p>only the vj genes are present for both paired chains, while the d gene is absernt from the gene name.</p></li>
-<li><p>Only the vdj genes are present for both the alpha/gamma and beta/delta. The cdr3 sequence is not present.</p></li>
-</ol>
-</section>
-</section>
-<section id="clustcr-questions">
-<h2>ClusTCR questions<a class="headerlink" href="#clustcr-questions" title="Permalink to this heading"></a></h2>
-<section id="why-did-the-app-crash-when-running-clustcr">
-<h3>Why did the app crash when running clusTCR?<a class="headerlink" href="#why-did-the-app-crash-when-running-clustcr" title="Permalink to this heading"></a></h3>
-<ol class="arabic simple">
-<li><p>there may be no clusters generated based on the v_gene and length.</p></li>
-</ol>
-<p>e.g., In the demo data, the BD does not produce clusters for the K409 combind data.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">creating</span> <span class="n">empty</span> <span class="n">matrixes</span>
-<span class="n">Performing</span> <span class="n">edit</span> <span class="n">distance</span>
-<span class="n">keeping</span> <span class="n">edit</span> <span class="n">distance</span> <span class="n">of</span> <span class="mi">1</span>
-<span class="n">Creating</span> <span class="n">target</span> <span class="ow">and</span> <span class="n">source</span> <span class="nb">object</span>
-<span class="ne">Warning</span><span class="p">:</span> <span class="n">Error</span> <span class="ow">in</span> <span class="p">[[:</span> <span class="n">subscript</span> <span class="n">out</span> <span class="n">of</span> <span class="n">bounds</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="annotating">
-<h2>Annotating<a class="headerlink" href="#annotating" title="Permalink to this heading"></a></h2>
-<section id="why-does-the-umap-look-messy-with-the-semi-supervised-annotations">
-<h3>1. Why does the UMAP look messy with the semi-supervised annotations?<a class="headerlink" href="#why-does-the-umap-look-messy-with-the-semi-supervised-annotations" title="Permalink to this heading"></a></h3>
-<p>The UMAP is created from the single sample principal components (PCs) or the harmony equivalent to PC. These PC or dimentions of variation are representative of the variable features. In this pipeline we chose up to 1:15 PC’s for the single sample and 1:30 PC’s for the Harmony process.</p>
-<p>The PC’s are calculated based on the most variable features. Our default selection is all for a single sample, and 3000 for merging.</p>
-<p>So, depending on the underlying structure of the dataset the biologically relevant markers required for annotation many not be represented in the PC’s. If they are not among the variable features, they will not be scaled either.</p>
-<p>To overcome this issue, I included the markers required for annotation added to the list of variable features.</p>
-<p>CD4 vs CD8 example.</p>
+<section id="theme">
+<h2>Theme<a class="headerlink" href="#theme" title="Permalink to this heading"></a></h2>
+<section id="question-1">
+<h3>Question 1?<a class="headerlink" href="#question-1" title="Permalink to this heading"></a></h3>
+<p>Content</p>
 </section>
 </section>
 </section>

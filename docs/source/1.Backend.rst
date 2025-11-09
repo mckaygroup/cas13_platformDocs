@@ -22,11 +22,10 @@ Run the following lines in R. A window will opened that runs the STEGO.R shiny R
 
         require(cas13_backend.R)
 
-        run()
+        cas13.backend::Processing_platform()
 
 
-You are now ready to process your scRNA-seq with scTCR-seq data!
-
+You are now ready to retrive the seuqence data from NCBI or from your own references
 
 1. Create the databases (SQLite and JSON)
 	Designed for Viruses
@@ -36,113 +35,6 @@ You are now ready to process your scRNA-seq with scTCR-seq data!
 4. Extract the Kingdom information (taxonomy) - other terms?
 5. Extract NCBI annotationSequences from NCBI
 6. Add in additional sequences
-	consensus sequences (previously done for SARS-CoV-2 strains)
-7. Normalise annotation to create consistency SarbecoV and MerbecoV
-	need to select which to use as the reference
-	Check for the start codon (ATG) with the alignment
-	Check to see the frame sequence
-	Penalties for openings and mismatches (gapOpening = -2 and gapExtension = -0.75; S increased to gapExtension to -1)
-	Remove genes that have <0.5 sequence alignment, and >500bp shift (mostly ORF8)
-	S and M had poorer alignments and needed to use a second sequences that was more closely matched to sequence
-	Realign based on the above
-		First pass showed S (spike) was less likely to find the correct start and needed a second more related sequence
-		Rational is to improve consistency and confidence of where the guides will come from
-	One SarbecoV was removed as it could not be annotated with confidence - when I did the bigger tree I determined it to be a MerbecoV
-8. Rscript to create iqTree
+7. Normalise annotation to create consistency, if required
+8. Rscript to create iqTree for the Front End analysis
 
-
-
-Running STEGO.R
----------------
-Now the the R environment is set up and the STEGO.R and its dependencies are installed, we can now run the application.
-
-Run the following lines in R. A window will opened that runs the STEGO.R shiny R application. 
-
-::
-
-        require(STEGO.R)
-
-        runSTEGO()
-
-
-You are now ready to process your scRNA-seq with scTCR-seq data!
-
-
-**Table 1. File to upload in the respective section.**
-
-============   =======
- Source        Inputs                            
-============   =======
-10x Genomics   - Features.csv.gz: Gene ID (SYMBOL)                                     
-               - Barcode.csv.gz: Cell ID (AGGATTT_1)
-               - Matrix.mtx.gz: Gene expression.
-               - Contig file (AIRR) format: contains the V(D)J sequences
-BD Rhapsody    - Features.csv.gz: Gene ID (SYMBOL)
-               - Barcode.csv.gz: Cell ID (numeric) 
-               - Matrix.mtx.gz: expression captured
-               - Sample_Tag.csv: multiplexing annotations 
-               - Contig file (AIRR) format: contains the V(D)J sequences
-============   =======
-
-**10x Genomics** 
-
-There are several file formats that are compatible with the STEGO.R QC process. These includes the standard cell ranger output of barcode, features, matrix files as well as the separate contig file. 
-
-*Under development: multi-TCR (requires unfiltered contig file)*
-
-.. image:: img/1_10xFormatting.png
-  :width: 1200
-  :alt: Alternative text
-
-
-File outputs and storage for Step 1. 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Upload the documents to the required sections depending on the technology and files available. Repeat for each of the samples within your project.
-
-1. Upload the files according to Table 1. 
-2. Check that the files have uploaded in the "Uploaded data" tab. 
-3. Add File Name, this will be added to the "orig.ident" and "Sample_Name"
-      - (10x Genomics and Array, as this is added from the "Sample Tags" in BD Rhapsody) column and used through out the process. This name needs to be unqiue to the file.
-      - If, at a latter point it needs to be updated, this can be done with the "Updated_label.csv", located in 3_Analysis folder
-
-Download to each of the `1_` folders e.g.,
-
-4. Download the TCRex output (containing functional Beta chains) to "1_TCRex" folder
-5. Download both the "meta-data" and "Matrix" in the SeuratQC into the "1_SeuratQC" folder
-6. Two files need to be downloaded per sample under the "ClusTCR" to the "1_ClusTCR" folder. They will have the prefix of `AG_` and `BD_` (*Version 1.5*)
-7. Download the TCR_Explore file "1_TCR_Explore" folder
-
-or 
-
-4. Download all files in order of TCRex, Seurat (matrix and meta.data), ClusTCR2 and TCR_Explore to the download folder. 
-5. Move all files to the respective folders in the Project directory according `1_`
-
-Automated Step 1. 
------------------
-
-**Currently available for 10x genomics**
-
-Within the raw data folder should be subfolders for each unique sample in the dataset. These subfolders should contain at least the barcodes, features, matrix and filtered_contig files.
-
-+ 0_rawfiles
-    - treatment1_SampleID1
-        * barcode 
-        * features
-        * Matrix
-        * TCR files (needs to have the word contig to be found)
-    - Sample1_treatment2
-    - Sample2_treatment1
-
-
-.. image:: img/1_10xFolderformatting.png
-  :width: 600
-  :alt: Alternative text
-
-Use the preprocessing.R found in the R folder of the project_director
-
-.. image:: img/1_preprocessing_auto.png
-  :width: 1200
-  :alt: Alternative text
-
-      

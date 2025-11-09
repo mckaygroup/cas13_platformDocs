@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Step 1. Formatting &mdash; STEGO.R 0.1 documentation</title>
+  <title>1. Backend &mdash; STEGO.R 0.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -20,7 +20,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Step 2. TCRex and ClusTCR2" href="2.Engine.html" />
+    <link rel="next" title="2. Engine: Processing the Sequence data" href="2.Engine.html" />
     <link rel="prev" title="Overview" href="0.Installation.html" /> 
 </head>
 
@@ -46,18 +46,13 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="0.Installation.html">Overview</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Step 1. Formatting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#running-stego-r">Running STEGO.R</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#manual-processing">Manual processing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#file-outputs-and-storage-for-step-1">File outputs and storage for Step 1.</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Backend</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#running-backend">Running Backend</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#automated-step-1">Automated Step 1.</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="2.Engine.html">Step 2. TCRex and ClusTCR2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3.Analysis.html">Step 3. Quality control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4.ExperimentalDesign.html">Step 4. Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.Engine.html">2. Engine: Processing the Sequence data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.Analysis.html">3. Analysis Section:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4.ExperimentalDesign.html">4. Experimental design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="5.UserTips.html">User Tips for the analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="6.FAQ.html">Frequenctly Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="7.Tutorial.html">Video Tutorial</a></li>
@@ -79,7 +74,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Step 1. Formatting</li>
+      <li class="breadcrumb-item active">1. Backend</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/1.Backend.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -89,8 +84,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="step-1-formatting">
-<h1>Step 1. Formatting<a class="headerlink" href="#step-1-formatting" title="Permalink to this heading"></a></h1>
+  <section id="backend">
+<h1>1. Backend<a class="headerlink" href="#backend" title="Permalink to this heading"></a></h1>
+<p>This section describes how the sequences were processed from NCBI to local database with the necessary information required for the Engine</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <dl>
@@ -102,118 +98,31 @@ Copy all your raw files to the 0_Raw_files folder within your project.</p>
 </dd>
 </dl>
 </div>
-<section id="running-stego-r">
-<h2>Running STEGO.R<a class="headerlink" href="#running-stego-r" title="Permalink to this heading"></a></h2>
+<section id="running-backend">
+<h2>Running Backend<a class="headerlink" href="#running-backend" title="Permalink to this heading"></a></h2>
 <p>Now the the R environment is set up and the STEGO.R and its dependencies are installed, we can now run the application.</p>
 <p>Run the following lines in R. A window will opened that runs the STEGO.R shiny R application.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">require</span><span class="p">(</span><span class="n">STEGO</span><span class="o">.</span><span class="n">R</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">require</span><span class="p">(</span><span class="n">cas13_backend</span><span class="o">.</span><span class="n">R</span><span class="p">)</span>
 
-<span class="n">runSTEGO</span><span class="p">()</span>
+<span class="n">cas13</span><span class="o">.</span><span class="n">backend</span><span class="p">::</span><span class="n">Processing_platform</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>You are now ready to process your scRNA-seq with scTCR-seq data!</p>
-</section>
-<section id="manual-processing">
-<h2>Manual processing<a class="headerlink" href="#manual-processing" title="Permalink to this heading"></a></h2>
-<p>Formatting the <strong>10x Genomics</strong>, <strong>BD Rhapsody</strong> or Array to create the necessary documents for Seurat QC process, ClusTCR2, TCRex and TCR_Explore.</p>
-<p>While this process was initially developed for TCRs, we have also included the capacity for pairing the BCR sequences.</p>
-<p><strong>Table 1. File to upload in the respective section.</strong></p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Source</p></th>
-<th class="head"><p>Inputs</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>10x Genomics</p></td>
-<td><ul class="simple">
-<li><p>Features.csv.gz: Gene ID (SYMBOL)</p></li>
-<li><p>Barcode.csv.gz: Cell ID (AGGATTT_1)</p></li>
-<li><p>Matrix.mtx.gz: Gene expression.</p></li>
-<li><p>Contig file (AIRR) format: contains the V(D)J sequences</p></li>
-</ul>
-</td>
-</tr>
-<tr class="row-odd"><td><p>BD Rhapsody</p></td>
-<td><ul class="simple">
-<li><p>Features.csv.gz: Gene ID (SYMBOL)</p></li>
-<li><p>Barcode.csv.gz: Cell ID (numeric)</p></li>
-<li><p>Matrix.mtx.gz: expression captured</p></li>
-<li><p>Sample_Tag.csv: multiplexing annotations</p></li>
-<li><p>Contig file (AIRR) format: contains the V(D)J sequences</p></li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>10x Genomics</strong></p>
-<p>There are several file formats that are compatible with the STEGO.R QC process. These includes the standard cell ranger output of barcode, features, matrix files as well as the separate contig file.</p>
-<p><em>Under development: multi-TCR (requires unfiltered contig file)</em></p>
-<a class="reference internal image-reference" href="_images/1_10xFormatting.png"><img alt="Alternative text" src="_images/1_10xFormatting.png" style="width: 1200px;" /></a>
-<p><strong>BD Rhapsody</strong></p>
-<p>There are two format outputs of BD Rhapsody aligment of either a cellxgene (.csv.gz) or the barcode, features and matrix file. Unlike 10x Genomics, there is also an extra file called “Sample Tags”, which contains the multi-plex ID names. The <strong>“Sample Tags”</strong> file is required. However, if this file is not created (one sample in the experiment), it can be created under the “Create Sample Tags file”.</p>
-<p>Additionally there are several formats for the TCR contig file: paired dominant, AIRR dominant (unpaired), AIRR unfilted. For the latter two file formates we include to filter to keep only the ‘paired’ and if BCR was present as well.</p>
-<a class="reference internal image-reference" href="_images/1_BDFormatting.png"><img alt="Alternative text" src="_images/1_BDFormatting.png" style="width: 1200px;" /></a>
-<p><strong>Array</strong></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-The **TCR_Explore** tool is designed for the interrogation of the TCR repertoire independent of gene expression data. For more information, visit <a href="https://tcr-explore.erc.monash.edu" target="_blank">TCR_Explore</a>.</div>
-<section id="file-outputs-and-storage-for-step-1">
-<h3>File outputs and storage for Step 1.<a class="headerlink" href="#file-outputs-and-storage-for-step-1" title="Permalink to this heading"></a></h3>
-<p>Upload the documents to the required sections depending on the technology and files available. Repeat for each of the samples within your project.</p>
+<p>You are now ready to retrive the seuqence data from NCBI or from your own references</p>
 <ol class="arabic simple">
-<li><p>Upload the files according to Table 1.</p></li>
-<li><p>Check that the files have uploaded in the “Uploaded data” tab.</p></li>
 <li><dl class="simple">
-<dt>Add File Name, this will be added to the “orig.ident” and “Sample_Name”</dt><dd><ul class="simple">
-<li><p>(10x Genomics and Array, as this is added from the “Sample Tags” in BD Rhapsody) column and used through out the process. This name needs to be unqiue to the file.</p></li>
-<li><p>If, at a latter point it needs to be updated, this can be done with the “Updated_label.csv”, located in 3_Analysis folder</p></li>
-</ul>
+<dt>Create the databases (SQLite and JSON)</dt><dd><p>Designed for Viruses
+Next version will also be created for Bacteria and Human</p>
 </dd>
 </dl>
 </li>
+<li><p>Extract the IDs from NCBI based on term list</p></li>
+<li><p>Add the sequences and metadata to the db</p></li>
+<li><p>Extract the Kingdom information (taxonomy) - other terms?</p></li>
+<li><p>Extract NCBI annotationSequences from NCBI</p></li>
+<li><p>Add in additional sequences</p></li>
+<li><p>Normalise annotation to create consistency, if required</p></li>
+<li><p>Rscript to create iqTree for the Front End analysis</p></li>
 </ol>
-<p>Download to each of the <cite>1_</cite> folders e.g.,</p>
-<ol class="arabic simple" start="4">
-<li><p>Download the TCRex output (containing functional Beta chains) to “1_TCRex” folder</p></li>
-<li><p>Download both the “meta-data” and “Matrix” in the SeuratQC into the “1_SeuratQC” folder</p></li>
-<li><p>Two files need to be downloaded per sample under the “ClusTCR” to the “1_ClusTCR” folder. They will have the prefix of <cite>AG_</cite> and <cite>BD_</cite> (<em>Version 1.5</em>)</p></li>
-<li><p>Download the TCR_Explore file “1_TCR_Explore” folder</p></li>
-</ol>
-<p>or</p>
-<ol class="arabic simple" start="4">
-<li><p>Download all files in order of TCRex, Seurat (matrix and meta.data), ClusTCR2 and TCR_Explore to the download folder.</p></li>
-<li><p>Move all files to the respective folders in the Project directory according <cite>1_</cite></p></li>
-</ol>
-</section>
-</section>
-<section id="automated-step-1">
-<h2>Automated Step 1.<a class="headerlink" href="#automated-step-1" title="Permalink to this heading"></a></h2>
-<p><strong>Currently available for 10x genomics</strong></p>
-<p>Within the raw data folder should be subfolders for each unique sample in the dataset. These subfolders should contain at least the barcodes, features, matrix and filtered_contig files.</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt>0_rawfiles</dt><dd><ul>
-<li><dl class="simple">
-<dt>treatment1_SampleID1</dt><dd><ul>
-<li><p>barcode</p></li>
-<li><p>features</p></li>
-<li><p>Matrix</p></li>
-<li><p>TCR files (needs to have the word contig to be found)</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p>Sample1_treatment2</p></li>
-<li><p>Sample2_treatment1</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-<a class="reference internal image-reference" href="_images/1_10xFolderformatting.png"><img alt="Alternative text" src="_images/1_10xFolderformatting.png" style="width: 600px;" /></a>
-<p>Use the preprocessing.R found in the R folder of the project_director</p>
-<a class="reference internal image-reference" href="_images/1_preprocessing_auto.png"><img alt="Alternative text" src="_images/1_preprocessing_auto.png" style="width: 1200px;" /></a>
 </section>
 </section>
 
@@ -222,7 +131,7 @@ The **TCR_Explore** tool is designed for the interrogation of the TCR repertoire
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="0.Installation.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="2.Engine.html" class="btn btn-neutral float-right" title="Step 2. TCRex and ClusTCR2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="2.Engine.html" class="btn btn-neutral float-right" title="2. Engine: Processing the Sequence data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
